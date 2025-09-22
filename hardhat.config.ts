@@ -55,17 +55,17 @@ const config: HardhatUserConfig = {
         ],
     },
     networks: {
-        'optimism-testnet': {
-            eid: EndpointId.OPTSEP_V2_TESTNET,
-            url: process.env.RPC_URL_OP_SEPOLIA || 'https://optimism-sepolia.gateway.tenderly.co',
+        'base-mainnet': {
+            eid: EndpointId.BASE_V2_MAINNET,
+            url: 'https://base.api.onfinality.io/public',
             accounts,
             oftAdapter: {
-                tokenAddress: '0x0', // Set the token address for the OFT adapter
+                tokenAddress: '0x708c2B2eEb9578dFe4020895139E88F7654647Ff', //$ROBOT on BASE, native ERC20 token to be bridged
             },
         },
-        'arbitrum-testnet': {
-            eid: EndpointId.ARBSEP_V2_TESTNET,
-            url: process.env.RPC_URL_ARB_SEPOLIA || 'https://arbitrum-sepolia.gateway.tenderly.co',
+        'peaq-mainnet': {
+            eid: EndpointId.PEAQ_V2_MAINNET,
+            url: 'https://peaq.api.onfinality.io/public',
             accounts,
         },
         hardhat: {
