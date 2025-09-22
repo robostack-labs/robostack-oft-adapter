@@ -20,18 +20,18 @@ import type { OmniPointHardhat } from '@layerzerolabs/toolbox-hardhat'
  *         },
  *     },
  */
-const optimismContract: OmniPointHardhat = {
-    eid: EndpointId.OPTSEP_V2_TESTNET,
+const baseContract: OmniPointHardhat = {
+    eid: EndpointId.BASE_V2_MAINNET,
     contractName: 'MyOFTAdapter',
 }
 
-const arbitrumContract: OmniPointHardhat = {
-    eid: EndpointId.ARBSEP_V2_TESTNET,
+const peaqContract: OmniPointHardhat = {
+    eid: EndpointId.PEAQ_V2_MAINNET,
     contractName: 'MyOFT',
 }
 
 // To connect all the above chains to each other, we need the following pathways:
-// Optimism <-> Arbitrum
+// BASE <-> PEAQ
 
 // For this example's simplicity, we will use the same enforced options values for sending to all chains
 // For production, you should ensure `gas` is set to the correct value through profiling the gas usage of calling OFT._lzReceive(...) on the destination chain
@@ -49,8 +49,8 @@ const EVM_ENFORCED_OPTIONS: OAppEnforcedOption[] = [
 // i.e. if you declare A,B there's no need to declare B,A
 const pathways: TwoWayConfig[] = [
     [
-        optimismContract, // Chain A contract
-        arbitrumContract, // Chain B contract
+        baseContract, // Chain A contract
+        peaqContract, // Chain B contract
         [['LayerZero Labs'], []], // [ requiredDVN[], [ optionalDVN[], threshold ] ]
         [1, 1], // [A to B confirmations, B to A confirmations]
         [EVM_ENFORCED_OPTIONS, EVM_ENFORCED_OPTIONS], // Chain B enforcedOptions, Chain A enforcedOptions
@@ -61,7 +61,7 @@ export default async function () {
     // Generate the connections config based on the pathways
     const connections = await generateConnectionsConfig(pathways)
     return {
-        contracts: [{ contract: optimismContract }, { contract: arbitrumContract }],
+        contracts: [{ contract: baseContract }, { contract: peaqContract }],
         connections,
     }
 }
