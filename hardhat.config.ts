@@ -57,7 +57,7 @@ const config: HardhatUserConfig = {
     networks: {
         'base-mainnet': {
             eid: EndpointId.BASE_V2_MAINNET,
-            url: 'https://base.api.onfinality.io/public',
+            url: 'https://base-rpc.publicnode.com',
             accounts,
             oftAdapter: {
                 tokenAddress: '0x708c2B2eEb9578dFe4020895139E88F7654647Ff', //$ROBOT on BASE, native ERC20 token to be bridged
@@ -65,7 +65,7 @@ const config: HardhatUserConfig = {
         },
         'peaq-mainnet': {
             eid: EndpointId.PEAQ_V2_MAINNET,
-            url: 'https://peaq.api.onfinality.io/public',
+            url: 'https://quicknode2.peaq.xyz',
             accounts,
         },
         hardhat: {
