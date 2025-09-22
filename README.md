@@ -9,8 +9,8 @@ PEAQ: 30302
 | Network | Contract     | Address                                    |
 |---------|--------------|--------------------------------------------|
 | BASE    | ERC20        | 0x708c2B2eEb9578dFe4020895139E88F7654647Ff |
-|         | MyOFTAdapter | 0x1Dbc47B0Fd3AdA6e4F8CcC5C619a2048c4Bd35C1 |
-| PEAQ    | MyOFT        | 0x1Dbc47B0Fd3AdA6e4F8CcC5C619a2048c4Bd35C1 |
+|         | MyOFTAdapter | 0xC6333bCF1257bFEE0235c288486b1522ea61BED8 |
+| PEAQ    | MyOFT        | 0xFd9D1b4a0384396A595345886d1E1D8AbF439CEf |
 
 ## Usage
 
