@@ -1,9 +1,8 @@
 import { EndpointId } from '@layerzerolabs/lz-definitions'
 import { ExecutorOptionType } from '@layerzerolabs/lz-v2-utilities'
-import { TwoWayConfig, generateConnectionsConfig } from '@layerzerolabs/metadata-tools'
-import { OAppEnforcedOption } from '@layerzerolabs/toolbox-hardhat'
-
+import { generateConnectionsConfig, TwoWayConfig } from '@layerzerolabs/metadata-tools'
 import type { OmniPointHardhat } from '@layerzerolabs/toolbox-hardhat'
+import { OAppEnforcedOption } from '@layerzerolabs/toolbox-hardhat'
 
 /**
  *  WARNING: ONLY 1 OFTAdapter should exist for a given global mesh.
@@ -52,7 +51,7 @@ const pathways: TwoWayConfig[] = [
         baseContract, // Chain A contract
         peaqContract, // Chain B contract
         [['Canary', 'P2P', 'Horizen'], []], // [ requiredDVN[], [ optionalDVN[], threshold ] ]
-        [1, 1], // [A to B confirmations, B to A confirmations]
+        [10, 5], // [A to B confirmations, B to A confirmations]
         [EVM_ENFORCED_OPTIONS, EVM_ENFORCED_OPTIONS], // Chain B enforcedOptions, Chain A enforcedOptions
     ],
 ]
